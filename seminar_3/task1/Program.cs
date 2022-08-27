@@ -13,3 +13,5 @@ else if (x < 0)
     if (y < 0) Console.WriteLine("III четверть");
     else Console.WriteLine("II четверть");
 }
+
+for
