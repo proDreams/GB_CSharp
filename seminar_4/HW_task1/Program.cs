@@ -2,7 +2,7 @@
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
-double GetPow(int number1, int number2)
+int GetPow(int number1, int number2)
 {
     int result = number1;
     int counter = 1;
