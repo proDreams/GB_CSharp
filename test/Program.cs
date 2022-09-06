@@ -1,5 +1,6 @@
-﻿// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+﻿// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
+
 using System.Diagnostics;
 
 long GetArray1(int size, int maxValue)
@@ -15,7 +16,7 @@ long GetArray1(int size, int maxValue)
     stopwatch.Stop();
     // Console.WriteLine($"Вариант 1 - вещественное умножать на 10: {stopwatch.ElapsedMilliseconds} миллисекунды.");
     // Console.WriteLine($"Вариант 1 - вещественное умножать на 10: {stopwatch.ElapsedTicks} тактов.");
-    return stopwatch.ElapsedTicks;
+    return stopwatch.ElapsedMilliseconds;
 }
 
 long GetArray2(int size, int minValue, int maxValue)
@@ -31,7 +32,7 @@ long GetArray2(int size, int minValue, int maxValue)
     stopwatch.Stop();
     // Console.WriteLine($"Вариант 2 - целое делить на 10: {stopwatch.ElapsedMilliseconds} миллисекунды.");
     // Console.WriteLine($"Вариант 2 - целое делить на 10: {stopwatch.ElapsedTicks} тактов.");
-    return stopwatch.ElapsedTicks;
+    return stopwatch.ElapsedMilliseconds;
 }
 
 long GetArray3(int size, int minValue, int maxValue)
@@ -46,7 +47,7 @@ long GetArray3(int size, int minValue, int maxValue)
     stopwatch.Stop();
     // Console.WriteLine($"Вариант 3 - к целому прибавить вещественное: {stopwatch.ElapsedMilliseconds} миллисекунды.");
     // Console.WriteLine($"Вариант 3 - к целому прибавить вещественное: {stopwatch.ElapsedTicks} тактов.");
-    return stopwatch.ElapsedTicks;
+    return stopwatch.ElapsedMilliseconds;
 }
 
 
@@ -62,18 +63,18 @@ for (int i = 0; i < arraySize; i++)
 {
     newArray1[i] = GetArray1(arraySize, arrayEnd);
 }
-Console.WriteLine($"Вариант 1 - вещественное умножать на 10: {newArray1.Average()} тактов.");
+Console.WriteLine($"Вариант 1 - вещественное умножать на 10: {newArray1.Average()} миллисекунды.");
 
 long[] newArray2 = new long[arraySize];
 for (int i = 0; i < arraySize; i++)
 {
     newArray1[i] = GetArray2(arraySize, arrayStart, arrayEnd);
 }
-Console.WriteLine($"Вариант 2 - целое делить на 10: {newArray1.Average()} тактов.");
+Console.WriteLine($"Вариант 2 - целое делить на 10: {newArray1.Average()} миллисекунды.");
 
 long[] newArray3 = new long[arraySize];
 for (int i = 0; i < arraySize; i++)
 {
     newArray1[i] = GetArray3(arraySize, arrayStart, arrayEnd);
 }
-Console.WriteLine($"Вариант 3 - к целому прибавить вещественное: {newArray1.Average()} тактов.");
+Console.WriteLine($"Вариант 3 - к целому прибавить вещественное: {newArray1.Average()} миллисекунды.");
