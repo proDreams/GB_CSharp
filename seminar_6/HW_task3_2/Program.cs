@@ -40,10 +40,37 @@ string BypassMatrix(int row, int column, int[,] array)
     return result;
 }
 
-int[,] matrix = {{1, 2, 3, 11, 20},
-                 {4, 5, 6, 12, 21},
-                 {7, 8, 9, 13, 22},
-                 {14, 15, 16, 17, 23},
-                 {24, 25, 26, 27, 28}};
-int startRow = 4, startColumn = 0;
-Console.WriteLine(BypassMatrix(startRow, startColumn, matrix));
+int[,] GetMatrix(int rows, int columns)
+{
+    int[,] result = new int[rows, columns];
+    int num = 1;
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            result[i, j] = num++;
+        }
+    }
+    return result;
+}
+
+void PrintMatrix(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]}\t");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.Write("Введите количество строк: ");
+int arrayRows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов: ");
+int arrayColumns = Convert.ToInt32(Console.ReadLine());
+int[,] newMatrix = GetMatrix(arrayRows, arrayColumns);
+PrintMatrix(newMatrix);
+Console.WriteLine(BypassMatrix(arrayRows - 1, 0, newMatrix));
