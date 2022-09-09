@@ -32,8 +32,10 @@ void PrintMatrix(int[,] array)
     }
 }
 
-double[] FindMean(int[,] array, int columns, int rows)
+double[] FindMean(int[,] array)
 {
+    int rows = array.GetLength(0);
+    int columns = array.GetLength(1);
     double[] result = new double[columns];
     double mean = 0;
 
@@ -60,5 +62,5 @@ int arrayEnd = Convert.ToInt32(Console.ReadLine());
 int[,] newMatrix = GetMatrix(arrayRows, arrayColumns, arrayStart, arrayEnd);
 Console.WriteLine("Массив:");
 PrintMatrix(newMatrix);
-double[] meanArray = FindMean(newMatrix, arrayColumns, arrayRows);
+double[] meanArray = FindMean(newMatrix);
 Console.WriteLine($"Среднее арифметическое каждого столбца: {String.Join("; ", meanArray)}");

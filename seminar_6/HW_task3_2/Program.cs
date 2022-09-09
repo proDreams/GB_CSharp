@@ -3,7 +3,6 @@
 // 4 5 6 -> 7 8 9 6 3 2 1 4 5
 // 7 8 9
 
-//Работает с любыми квадратными матрицами и матрицами с разным количеством строк.
 string BypassMatrix(int row, int column, int[,] array)
 {
     string result = String.Empty;
@@ -23,19 +22,21 @@ string BypassMatrix(int row, int column, int[,] array)
         }
         lastColumn--;
 
-        for (int i = lastColumn; i >= column; i--)
+        if (row >= lastRow && column <= lastColumn)
         {
-            result += array[lastRow, i] + " ";
+            for (int i = lastColumn; i >= column; i--)
+            {
+                result += array[lastRow, i] + " ";
+            }
+            lastRow++;
+
+
+            for (int i = lastRow; i <= row; i++)
+            {
+                result += array[i, column] + " ";
+            }
+            column++;
         }
-        lastRow++;
-
-
-        for (int i = lastRow; i <= row; i++)
-        {
-            result += array[i, column] + " ";
-        }
-        column++;
-
     }
     return result;
 }

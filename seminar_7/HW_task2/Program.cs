@@ -45,7 +45,7 @@ int[] FindElement(int[,] array, int numberToSearch)
             {
                 status[0] = i;
                 status[1] = j;
-                break;
+                return status;
             }
         }
     }
