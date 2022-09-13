@@ -6,7 +6,10 @@ double[] CrossPoint(double[,] array)
 {
     double[] points = new double[2];
     points[0] = (array[1, 1] - array[0, 1]) / (array[0, 0] - array[1, 0]);
+    points[0] = Math.Round(points[0], 2);
     points[1] = array[0, 0] * points[0] + array[0, 1];
+    points[1] = Math.Round(points[1], 2);
+
     return points;
 }
 
