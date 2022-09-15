@@ -6,19 +6,21 @@
 
 bool Brackets(string seq)
 {
-    int size = seq.Length;
-
-    if (size % 2 != 0) return false;
-    else
+    if (seq.Length % 2 != 0) return false;
+    while (seq.Length > 0)
     {
-        for (int i = 0; i < size / 2; i++)
+        if (seq[1] == BracketsTable(seq[0])) seq = seq.Remove(0, 2);
+        else if (seq[seq.Length - 1] == BracketsTable(seq[seq.Length - 2])) seq = seq.Remove(seq.Length - 2, 2);
+        else if (seq[seq.Length - 1] == BracketsTable(seq[0]))
         {
-            char open = seq[i];
-            char close = BracketsTable(seq[i]);
-            if (close != seq[size - 1 - i]) return false;
+            seq = seq.Remove(0, 1);
+            seq = seq.Remove(seq.Length - 1, 1);
         }
-        return true;
+        else break;
+        // Console.WriteLine(seq); // Вывод для тестирования
     }
+    if (seq.Length > 0) return false;
+    else return true;
 }
 
 char BracketsTable(char bracket)
@@ -28,6 +30,9 @@ char BracketsTable(char bracket)
         case '(': return ')';
         case '{': return '}';
         case '[': return ']';
+        case ')': return '(';
+        case '}': return '{';
+        case ']': return '[';
         default: return '_';
     }
 }
