@@ -6,37 +6,38 @@
 
 bool Brackets(string seq)
 {
+    int changes = 1;
     if (seq.Length % 2 != 0) return false;
-    while (seq.Length > 0)
+    while (changes > 0)
     {
-        if (seq[1] == BracketsTable(seq[0])) seq = seq.Remove(0, 2);
-        else if (seq[seq.Length - 1] == BracketsTable(seq[seq.Length - 2])) seq = seq.Remove(seq.Length - 2, 2);
-        else if (seq[seq.Length - 1] == BracketsTable(seq[0]))
+        changes = 0;
+        for (int i = 0; i < seq.Length; i++)
         {
-            seq = seq.Remove(0, 1);
-            seq = seq.Remove(seq.Length - 1, 1);
+            if (i + 1 > seq.Length - 1) break;
+
+            string temp = seq[i].ToString() + seq[i + 1].ToString(); // без ToString почему то говорит, что нельзя преобразовать int в string
+            if (BracketsTable(temp))
+            {
+                seq = seq.Remove(i, 2);
+                changes++;
+            }
         }
-        else break;
-        // Console.WriteLine(seq); // Вывод для тестирования
     }
     if (seq.Length > 0) return false;
     else return true;
 }
 
-char BracketsTable(char bracket)
+bool BracketsTable(string bracket)
 {
     switch (bracket)
     {
-        case '(': return ')';
-        case '{': return '}';
-        case '[': return ']';
-        case ')': return '(';
-        case '}': return '{';
-        case ']': return '[';
-        default: return '_';
+        case "()": return true;
+        case "{}": return true;
+        case "[]": return true;
+        default: return false;
     }
 }
 
-string sequence = Console.ReadLine();
+string sequence = Console.ReadLine() ?? string.Empty;
 if (Brackets(sequence)) Console.WriteLine("Правильная последовательность");
 else Console.WriteLine("Неправильная последовательность");
