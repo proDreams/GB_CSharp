@@ -36,7 +36,6 @@ void BypassMatrix(int row, int column, int[,] array)
             }
             lastRow--;
 
-
             for (int i = lastRow; i >= row; i--)
             {
                 array[i, column] = point;
