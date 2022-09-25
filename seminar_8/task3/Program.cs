@@ -70,19 +70,19 @@ int[] BubbleSort(int[] array)
 
 void CheckNumbers(int[] sortedArray)
 {
-    for (int i = 0; i < array.Length - 1; i++)
+    for (int i = 0; i < sortedArray.Length - 1; i++)
     {
-        for (int j = i + 1; j < array.Length; j++)
+        for (int j = i + 1; j < sortedArray.Length; j++)
         {
-            if (array[i] > array[j])
+            if (sortedArray[i] > sortedArray[j])
             {
-                int temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
+                int temp = sortedArray[j];
+                sortedArray[j] = sortedArray[i];
+                arrsortedArrayay[i] = temp;
             }
         }
     }
-    return array;
+    return sortedArray;
 }
 
 Console.Write("Введите количество строк: ");
