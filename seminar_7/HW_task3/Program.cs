@@ -44,7 +44,7 @@ double[] FindMean(int[,] array)
         {
             mean += array[i, j];
         }
-        result[j] = mean / columns;
+        result[j] = mean / rows;
         mean = 0;
     }
     return result;
