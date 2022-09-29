@@ -11,10 +11,10 @@ def MeanColumns(array, row, col):
     result = []
     mean = 0
 
-    for i in range(row):
-        for j in range(col):
+    for i in range(col):
+        for j in range(row):
             mean += array[i][j]
-        result.append(mean / col)
+        result.append(mean / row)
         mean = 0
     return result
 
