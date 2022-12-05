@@ -8,7 +8,4 @@ from random import randint
 num = randint(10, 100)
 first = num // 10
 second = num % 10
-if first > second:
-    print(num, first)
-else:
-    print(num, second)
+print(max(first, second))
